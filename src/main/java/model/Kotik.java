@@ -57,12 +57,12 @@ public class Kotik {
     }
 
     public boolean play() {
-        if (satiety<=0) return false;
+        if (satiety <= 0) return false;
         System.out.println("Котик наслаждается игрой");
         return true;
     }
 
-    public boolean sleep () {
+    public boolean sleep() {
         if (satiety <= 0) return false;
         System.out.println("Котик сыт и спит");
         return true;
@@ -94,7 +94,7 @@ public class Kotik {
         int eatMethodsNum = 3;
 
         for (int i = 0; i < 24; i++) {
-            System.out.print(i+1 + ": ");
+            System.out.print(i + 1 + ": ");
 
             randomNumber = random.nextInt(countMethod) + 1;
 
@@ -117,7 +117,6 @@ public class Kotik {
             }
 
             if (!executeAction) {
-                System.out.println("Я голодный! Дай мне еды.");
 
                 randomNumber = random.nextInt(eatMethodsNum) + 1;
                 switch (randomNumber) {
@@ -139,12 +138,12 @@ public class Kotik {
 
     public void eat(int countOfFood) {
         this.satiety += countOfFood;
-        System.out.println("Котик покушал еды в количестве " + countOfFood +", теперь он доволен.");
+        System.out.println("Котик покушал еды в количестве " + countOfFood + ", теперь он доволен.");
     }
 
     public void eat(int countOfFood, String nameOfFood) {
         this.satiety += countOfFood;
-        System.out.println("Котик покушал еды " + nameOfFood +" в количестве " + countOfFood +", теперь он доволен.");
+        System.out.println("Котик покушал еды " + nameOfFood + " в количестве " + countOfFood + ", теперь он доволен.");
     }
 
     public void eat() {

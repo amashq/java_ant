@@ -4,15 +4,15 @@ public class Application {
 
     public static void main(String[] args) {
 
-        Kotik Peryshko = new Kotik(8, "Перышко", 5, "Мяу-Мяу");
-        Kotik Milka = new Kotik();
+        Kotik peryshko = new Kotik(8, "Перышко", 5, "Мяу-Мяу");
+        Kotik milka = new Kotik();
 
-        Milka.setKotik(10, "Милка", 3, "Мяяяяу");
+        milka.setKotik(10, "Милка", 3, "Мяяяяу");
 
-        Milka.liveAnotherDay();
-        System.out.println("\nМилый котик " + Milka.getName() + " весит " + Milka.getWeight() + " кг");
+        milka.liveAnotherDay();
+        System.out.println("\nМилый котик " + milka.getName() + " весит " + milka.getWeight() + " кг");
 
-        if (Peryshko.getMeow().equals(Milka.getMeow())) {
+        if (peryshko.getMeow().equals(milka.getMeow())) {
             System.out.println("Котики разговаривают одинаково :)");
         } else {
             System.out.println("Котики говорят разные слова ");
