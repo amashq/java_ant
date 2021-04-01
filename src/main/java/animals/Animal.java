@@ -1,6 +1,7 @@
 package animals;
 
 import Aviary.AviarySize;
+import Aviary.WrongFoodException;
 import food.Food;
 
 import java.util.Objects;
@@ -41,7 +42,7 @@ public abstract class Animal {
         this.name = name;
     }
 
-    public abstract void eat(Food food);
+    public abstract void eat(Food food) throws WrongFoodException;
 
     public final AviarySize getSize() {
         return size;

@@ -14,7 +14,7 @@ public abstract class Herbivore extends Animal {
     }
 
     @Override
-    public final void eat(final Food food) {
+    public final void eat(final Food food) throws WrongFoodException {
         if (getSatiety() < 0) {
             System.out.println("Некого кормить. Животное '" + getType() + "' погибло от голода :(");
             return;
@@ -24,31 +24,14 @@ public abstract class Herbivore extends Animal {
             System.out.println("Животное '" + getType() + "' погибло от голода :(");
         }
 
-        try {
-            if (food instanceof Grass) {
-                eating += new Random().nextInt(10) + 1;
-                setSatiety(eating);
-                System.out.println(getType() + " поел(-а) " + food.getName());
-            } else {
-                setSatiety(eating - new Random().nextInt(10) + 1);
-                System.out.println(getType() + " " + getName() + " не поел(-а)");
-                throw new WrongFoodException();
-            }
-        } catch (WrongFoodException e) {
-            e.printStackTrace();
+        if (food instanceof Grass) {
+            eating += new Random().nextInt(10) + 1;
+            setSatiety(eating);
+            System.out.println(getType() + " поел(-а) " + food.getName());
+        } else {
+            setSatiety(eating - new Random().nextInt(10) + 1);
+            System.out.println(getType() + " " + getName() + " не поел(-а)");
+            throw new WrongFoodException();
         }
     }
 }
-
-
-//    @Override
-//    public void eat(Food food) {
-//        if (food instanceof Grass) {
-//            System.out.println(super.getType() + " поел(-а) " + food.getName());
-//            return true;
-//        } else {
-//            System.out.println(super.getType() + " не ест " + food.getName());
-//            return false;
-//        }
-//    }
-//}

@@ -1,8 +1,6 @@
 package Aviary;
 
 import animals.Animal;
-import animals.Carnivorous;
-import animals.Herbivore;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,7 +9,6 @@ public class Aviary<T extends Animal> {
 
     private AviarySize size;
     private Map<String, T> animals;
-    private String beforeAnimal;
 
     public Aviary(final AviarySize size) {
         animals = new HashMap<>();
@@ -19,25 +16,12 @@ public class Aviary<T extends Animal> {
     }
 
     public final void add(final T animal) {
-        if (!animal.getSize().equals(size)) {
-            System.out.println("Размер вольера " + size + " не подходит животного "
-                    + animal.getType() + " " + animal.getName());
-            return;
-        }
-        if (animals.isEmpty()) {
-            beforeAnimal = animal.getName();
-            animals.put(animal.getName(), animal);
-            System.out.println(animal.getName() + " добавлен в вольер размера " + size);
-            return;
-        }
-        if (getAnimalByName(beforeAnimal) instanceof Herbivore && animal instanceof Herbivore) {
-            animals.put(animal.getName(), animal);
-            System.out.println(animal.getName() + " добавлен в вольер размера " + size);
-        } else if (getAnimalByName(beforeAnimal) instanceof Carnivorous && animal instanceof Carnivorous) {
+        if (animal.getSize().getAviarySize() < size.getAviarySize()) {
             animals.put(animal.getName(), animal);
             System.out.println(animal.getName() + " добавлен в вольер размера " + size);
         } else {
-            System.out.println("Тип вольера не подходит животному " + animal.getType() + " " + animal.getName());
+            System.out.println("Размер вольера " + size + " не подходит животному "
+                    + animal.getType() + " " + animal.getName());
         }
     }
 

@@ -49,12 +49,11 @@ public class Zoo {
         }
 
         System.out.println("\nДобавление в вольеры!");
-        Aviary aviarySmall = new Aviary(AviarySize.SMALL);
-        Aviary aviaryNormal = new Aviary(AviarySize.NORMAL);
-        Aviary aviaryBig = new Aviary(AviarySize.BIG);
-        Aviary aviaryLarge = new Aviary(AviarySize.LARGE);
+        Aviary<Herbivore> aviarySmall = new Aviary(AviarySize.SMALL);
+        Aviary<Carnivorous> aviaryNormal = new Aviary(AviarySize.NORMAL);
+        Aviary<Herbivore> aviaryBig = new Aviary(AviarySize.BIG);
+        Aviary<Carnivorous> aviaryLarge = new Aviary(AviarySize.LARGE);
         Aviary[] aviaries = {aviarySmall, aviaryNormal, aviaryBig, aviaryLarge};
-
 
         for (Aviary a : aviaries) {
             a.add(animals[new Random().nextInt(animals.length)]);
