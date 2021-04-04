@@ -10,6 +10,14 @@ public class Lynx extends Carnivorous implements Run, Swim, Voice {
 
     @Override
     public final void run() {
+// public class Lynx extends Carnivorous implements Run, Swim, Voice {
+
+//     public Lynx(String name) {
+//         super("Рысь", name);
+//     }
+
+//     @Override
+//     public void run() {
         System.out.println("Рысь " + getName() + " бежит");
     }
 

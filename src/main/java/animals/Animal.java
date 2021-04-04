@@ -12,8 +12,8 @@ public abstract class Animal {
     private final String type;
     private int satiety;
     private String name;
-    private AviarySize size;
 
+    private AviarySize size;
 
     Animal(final String type, final String name, final AviarySize size) {
         this.type = type;
@@ -43,6 +43,7 @@ public abstract class Animal {
     }
 
     public abstract void eat(Food food) throws WrongFoodException;
+//   public abstract boolean eat(Food food);
 
     public final AviarySize getSize() {
         return size;

@@ -12,6 +12,9 @@ public abstract class Herbivore extends Animal {
     public Herbivore(final String type, final String name, final AviarySize size) {
         super(type, name, size);
     }
+//    public Herbivore(String type, String name) {
+//         super(type, name);
+//     }
 
     @Override
     public final void eat(final Food food) throws WrongFoodException {
@@ -35,3 +38,4 @@ public abstract class Herbivore extends Animal {
         }
     }
 }
+
