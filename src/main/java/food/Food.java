@@ -1,13 +1,14 @@
 package food;
 
 public abstract class Food {
-    String name;
 
-    public Food(String name) {
+    private String name;
+
+    public Food(final String name) {
         this.name = name;
     }
 
-    public String getName() {
+    public final String getName() {
         return name;
     }
 }

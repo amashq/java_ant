@@ -1,7 +1,10 @@
 package animals;
 
+import Aviary.AviarySize;
+import Aviary.WrongFoodException;
 import food.Food;
 
+import java.util.Objects;
 import java.util.Random;
 
 public abstract class Animal {
@@ -10,31 +13,53 @@ public abstract class Animal {
     private int satiety;
     private String name;
 
-    Animal(String type, String name) {
+    private AviarySize size;
+
+    Animal(final String type, final String name, final AviarySize size) {
         this.type = type;
         satiety = new Random().nextInt(10) + 1;
         this.name = name;
+        this.size = size;
     }
 
-    public String getType() {
+    public final String getType() {
         return type;
     }
 
-    public int getSatiety() {
+    public final int getSatiety() {
         return satiety;
     }
 
-    public void setSatiety(int satiety) {
+    public final void setSatiety(final int satiety) {
         this.satiety = satiety;
     }
 
-    public String getName() {
+    public final String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public final void setName(final String name) {
         this.name = name;
     }
 
-    public abstract boolean eat(Food food);
+    public abstract void eat(Food food) throws WrongFoodException;
+//   public abstract boolean eat(Food food);
+
+    public final AviarySize getSize() {
+        return size;
+    }
+
+    @Override
+    public final boolean equals(final Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Animal animal = (Animal) o;
+        return satiety == animal.satiety && type.equals(animal.type)
+                && name.equals(animal.name) && size == animal.size;
+    }
+
+    @Override
+    public final int hashCode() {
+        return Objects.hash(type, satiety, name, size);
+    }
 }

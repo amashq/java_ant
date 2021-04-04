@@ -2,7 +2,7 @@ package food;
 
 public abstract class Grass extends Food {
 
-    public Grass(String name) {
+    public Grass(final String name) {
         super(name);
     }
 }

@@ -1,22 +1,41 @@
 package animals;
 
+import Aviary.AviarySize;
+import Aviary.WrongFoodException;
 import food.Food;
 import food.Grass;
 
+import java.util.Random;
+
 public abstract class Herbivore extends Animal {
 
-    public Herbivore(String type, String name) {
-        super(type, name);
+    public Herbivore(final String type, final String name, final AviarySize size) {
+        super(type, name, size);
     }
+//    public Herbivore(String type, String name) {
+//         super(type, name);
+//     }
 
     @Override
-    public boolean eat(Food food) {
+    public final void eat(final Food food) throws WrongFoodException {
+        if (getSatiety() < 0) {
+            System.out.println("Некого кормить. Животное '" + getType() + "' погибло от голода :(");
+            return;
+        }
+        int eating = getSatiety();
+        if (getSatiety() < 0) {
+            System.out.println("Животное '" + getType() + "' погибло от голода :(");
+        }
+
         if (food instanceof Grass) {
-            System.out.println(super.getType() + " поел(-а) " + food.getName());
-            return true;
+            eating += new Random().nextInt(10) + 1;
+            setSatiety(eating);
+            System.out.println(getType() + " поел(-а) " + food.getName());
         } else {
-            System.out.println(super.getType() + " не ест " + food.getName());
-            return false;
+            setSatiety(eating - new Random().nextInt(10) + 1);
+            System.out.println(getType() + " " + getName() + " не поел(-а)");
+            throw new WrongFoodException();
         }
     }
 }
+

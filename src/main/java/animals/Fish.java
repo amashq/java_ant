@@ -1,13 +1,15 @@
 package animals;
 
+import Aviary.AviarySize;
+
 public class Fish extends Carnivorous implements Swim {
 
-    public Fish(String name) {
-        super("Рыба", name);
+    public Fish(final String name) {
+        super("Рыба", name, AviarySize.SMALL);
     }
 
     @Override
-    public void swim() {
+    public final void swim() {
         System.out.println("Рыба " + getName() + " плывет");
     }
 }

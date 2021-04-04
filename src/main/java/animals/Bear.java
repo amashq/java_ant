@@ -1,23 +1,25 @@
 package animals;
 
+import Aviary.AviarySize;
+
 public class Bear extends Carnivorous implements Run, Swim, Voice {
 
-    public Bear(String name) {
-        super("Медведь", name);
+    public Bear(final String name) {
+        super("Медведь", name, AviarySize.LARGE);
     }
 
     @Override
-    public void run() {
+    public final void run() {
         System.out.println("Медведь " + getName() + " бежит");
     }
 
     @Override
-    public void swim() {
+    public final void swim() {
         System.out.println("Медведь " + getName() + " плывет");
     }
 
     @Override
-    public String voice() {
+    public final String voice() {
         return "Ггррррр";
     }
 }

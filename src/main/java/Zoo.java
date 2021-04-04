@@ -1,3 +1,5 @@
+import Aviary.Aviary;
+import Aviary.AviarySize;
 import animals.*;
 import food.*;
 
@@ -5,7 +7,7 @@ import java.util.Random;
 
 public class Zoo {
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
 
         Worker worker = new Worker();
 
@@ -44,6 +46,18 @@ public class Zoo {
         for (int i = 0; i < 40; i++) {
             worker.feed(animals[new Random().nextInt(animals.length)],
                     foods[new Random().nextInt(foods.length)]);
+        }
+
+        System.out.println("\nДобавление в вольеры!");
+        Aviary<Herbivore> aviarySmall = new Aviary(AviarySize.SMALL);
+        Aviary<Carnivorous> aviaryNormal = new Aviary(AviarySize.NORMAL);
+        Aviary<Herbivore> aviaryBig = new Aviary(AviarySize.BIG);
+        Aviary<Carnivorous> aviaryLarge = new Aviary(AviarySize.LARGE);
+        Aviary[] aviaries = {aviarySmall, aviaryNormal, aviaryBig, aviaryLarge};
+
+        for (Aviary a : aviaries) {
+            a.add(animals[new Random().nextInt(animals.length)]);
+            a.remove(animals[new Random().nextInt(animals.length)].getName());
         }
     }
 }

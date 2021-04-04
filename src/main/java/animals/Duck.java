@@ -1,28 +1,30 @@
 package animals;
 
+import Aviary.AviarySize;
+
 public class Duck extends Herbivore implements Fly, Swim, Run, Voice {
 
-    public Duck(String name) {
-        super("Утка", name);
+    public Duck(final String name) {
+        super("Утка", name, AviarySize.NORMAL);
     }
 
     @Override
-    public void fly() {
+    public final void fly() {
         System.out.println("Утка " + getName() + " летит");
     }
 
     @Override
-    public void run() {
+    public final void run() {
         System.out.println("Утка " + getName() + " бежит");
     }
 
     @Override
-    public void swim() {
+    public final void swim() {
         System.out.println("Утка " + getName() + " плывет");
     }
 
     @Override
-    public String voice() {
+    public final String voice() {
         return "Кря-кря";
     }
 }

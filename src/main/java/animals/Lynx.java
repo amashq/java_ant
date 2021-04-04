@@ -1,23 +1,33 @@
 package animals;
 
+import Aviary.AviarySize;
+
 public class Lynx extends Carnivorous implements Run, Swim, Voice {
 
-    public Lynx(String name) {
-        super("Рысь", name);
+    public Lynx(final String name) {
+        super("Рысь", name, AviarySize.LARGE);
     }
 
     @Override
-    public void run() {
+    public final void run() {
+// public class Lynx extends Carnivorous implements Run, Swim, Voice {
+
+//     public Lynx(String name) {
+//         super("Рысь", name);
+//     }
+
+//     @Override
+//     public void run() {
         System.out.println("Рысь " + getName() + " бежит");
     }
 
     @Override
-    public void swim() {
+    public final void swim() {
         System.out.println("Рысь " + getName() + " плывет");
     }
 
     @Override
-    public String voice() {
+    public final String voice() {
         return "Рррмяу-ррр";
     }
 }

@@ -1,17 +1,19 @@
 package animals;
 
+import Aviary.AviarySize;
+
 public class Giraffe extends Herbivore implements Run, Voice {
-    public Giraffe(String name) {
-        super("Жираф", name);
+    public Giraffe(final String name) {
+        super("Жираф", name, AviarySize.LARGE);
     }
 
     @Override
-    public void run() {
+    public final void run() {
         System.out.println("Жираф " + getName() + " бежит");
     }
 
     @Override
-    public String voice() {
+    public final String voice() {
         return "Груу-уууу";
     }
 }
