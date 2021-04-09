@@ -21,54 +21,54 @@ public class StepsAvito {
 
 
     @Пусть("открыт ресурс авито")
-    public void открытРесурсАвито() {
+    public void openAvito() {
         pageAvito.openAvito("https://www.avito.ru/");
     }
 
 
     @И("в выпадающем списке категорий выбрана {categories}")
-    public void вВыпадающемСпискеКатегорийВыбранаОргтехника(ListCategories category) {
+    public void selectCategory(ListCategories category) {
         pageAvito.selectCategory(category.value);
     }
 
     @И("в поле поиска введено значение {word}")
-    public void вПолеПоискаВведеноЗначениеПринтер(String text) {
+    public void searchPrinter(String text) {
         pageAvito.searchPrinter(text);
     }
 
     @Тогда("кликнуть по выпадающему списку региона")
-    public void кликнутьПоВыпадающемуСпискуРегиона() {
+    public void choiceRegion() {
         pageAvito.choiceRegion();
     }
 
     @Тогда("в поле регион введено значение {word}")
-    public void вПолеРегионВведеноЗначениеВладивосток(String city) {
+    public void inputCity(String city) {
         pageAvito.inputCity(city);
         pageAvito.clickFirstCity();
     }
 
     @И("нажата кнопка показать объявления")
-    public void нажатаКнопкаПоказатьОбъявления() {
+    public void clickShowAds() {
         pageAvito.clickShowAds();
     }
 
     @Тогда("открылась страница результаты по запросу {word}")
-    public void открыласьСтраницаРезультатыПоЗапросуПринтер(String text) {
+    public void checkPageContainsPrinters(String text) {
         pageAvito.checkPageContainsPrinters(text);
     }
 
     @И("активирован чекбокс только с фотографией")
-    public void активированЧекбоксТолькоСФотографией() {
+    public void checkBoxPhoto() {
         pageAvito.checkBoxPhoto();
     }
 
     @И("в выпадающем списке сортировка выбрано значение {sort}")
-    public void вВыпадающемСпискеСортировкаВыбраноЗначениеДороже(Sort sort) {
+    public void choiceFilter(Sort sort) {
         pageAvito.choiceFilter(sort.value);
     }
 
     @И("в консоль выведено значение названия и цены {int} первых товаров")
-    public void вКонсольВыведеноЗначениеНазванияИЦеныПервыхТоваров(int number) {
+    public void printPrinters(int number) {
         pageAvito.printPrinters(number);
         pageAvito.closeDriver();
     }
